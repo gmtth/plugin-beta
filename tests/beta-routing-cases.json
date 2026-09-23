@@ -63,6 +63,24 @@
     "assertions": ["usar escopo e filtros", "tratar ticket como evidência operacional"]
   },
   {
+    "id": "anl-clk-checklist",
+    "prompt": "Sincronize o checklist comentado desta tarefa do ClickUp com os problemas registrados depois dele.",
+    "primary_mode": "ANL",
+    "primary_skill": "beta-clk-checklist",
+    "allowed_helpers": [],
+    "transitions": [],
+    "assertions": ["exigir link de tarefa ou comentário", "alterar somente o comentário de checklist"]
+  },
+  {
+    "id": "mod-sites-clone",
+    "prompt": "Atualize o clone web isolado do CENCIHUB com base na modelagem e nas referências visuais fornecidas.",
+    "primary_mode": "MOD",
+    "primary_skill": "beta-sites",
+    "allowed_helpers": ["beta-mod-regras", "beta-mod-fluxos"],
+    "transitions": [],
+    "assertions": ["manter execução isolada", "não integrar com o sistema real"]
+  },
+  {
     "id": "anl-movidesk-direto",
     "prompt": "Consulte diretamente o ticket 5725 e resuma o histórico retornado.",
     "primary_mode": "ANL",

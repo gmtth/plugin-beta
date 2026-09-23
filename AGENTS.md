@@ -8,7 +8,9 @@ Este projeto empacota a família Beta em um único plugin do Codex. A entrada pr
 
 - `skills/beta/`: única orquestradora automática e control plane.
 - `skills/beta-anl-*`: módulos de análise funcional, QA, ClickUp e Movidesk.
+- `skills/beta-clk-checklist/`: sincronização controlada de checklist comentado do ClickUp.
 - `skills/beta-mod-*`: módulos especializados de modelagem funcional.
+- `skills/beta-sites/`: materialização de clone web isolado do CENCIHUB.
 - `skills/beta/references/protocolo-evidencias-e-handoffs.md`: protocolo transversal obrigatório.
 - `references/`: Knowledge Master, integridade e material de apoio compartilhado.
 - `tests/beta-routing-cases.json`: matriz de contratos de roteamento.
@@ -33,6 +35,8 @@ As antigas orquestradoras `beta-anl-router` e `beta-mod` não fazem parte da pas
 - Manter Dossiê, QA, filtro de publicação e artefatos conforme as regras do modo MOD.
 - Operar conectores em somente leitura quando assim definido pela skill ou MCP.
 - Não simular acesso a Movidesk, ClickUp, Figma ou qualquer outro conector.
+- `beta-clk-checklist` só pode ser invocada com link explícito de tarefa ou comentário do ClickUp e só pode alterar o comentário de checklist determinado pelo seu contrato.
+- `beta-sites` permanece isolada do backend, API, banco, autenticação e ambientes reais do CENCIHUB.
 - Preservar regras específicas de cada subskill; alterações transversais devem ser feitas no protocolo compartilhado e refletidas nos testes.
 
 ## MCP
@@ -61,7 +65,7 @@ Também confira:
 - ícones referenciados pelos metadados existentes;
 - links relativos para referências válidos;
 - ausência de caminhos absolutos, tokens e referências a diretórios externos;
-- cobertura das 17 subskills especializadas na matriz de roteamento.
+- cobertura das 19 subskills especializadas na matriz de roteamento.
 
 ## Preservação de fontes
 

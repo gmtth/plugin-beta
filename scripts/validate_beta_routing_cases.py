@@ -82,6 +82,7 @@ def main(root: Path) -> int:
         "beta-anl-qa-testes",
         "beta-anl-qa-resultados",
         "beta-anl-gerador-cards-clickup",
+        "beta-clk-checklist",
         "beta-anl-movidesk",
         "beta-mod-regras",
         "beta-mod-dossie",
@@ -93,6 +94,7 @@ def main(root: Path) -> int:
         "beta-mod-relatorios",
         "beta-mod-qa",
         "beta-mod-artefatos",
+        "beta-sites",
     }
     for skill in sorted(required - primary_skills):
         errors.append(f"missing primary coverage: {skill}")

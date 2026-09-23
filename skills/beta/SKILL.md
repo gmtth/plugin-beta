@@ -34,9 +34,12 @@ Use as skills especializadas conforme a intenção:
 - `beta-anl-qa-testes`: criação ou revisão de checklist e cenários de teste.
 - `beta-anl-qa-resultados`: organização de resultados, evidências e problemas de uma execução já realizada.
 - `beta-anl-gerador-cards-clickup`: criação ou consolidação de card quando o conteúdo já estiver suficientemente definido.
+- `beta-clk-checklist`: sincronização autorizada de um checklist comentado do ClickUp a partir dos problemas posteriores, sempre exigindo o link da tarefa ou comentário.
 - `beta-anl-movidesk`: consulta analítica ou execução direta das consultas somente leitura disponíveis pelo MCP Beta MOV.
 
 Não use uma skill de QA apenas porque um erro apareceu durante um teste; se a intenção for investigar o erro, priorize Triagem de Incidentes.
+
+Quando o objetivo for atualizar um clone web isolado do CENCIHUB, use `beta-sites` como módulo de materialização visual e funcional, sem integrar com o sistema real.
 
 ### Desambiguação ANL
 
