@@ -61,7 +61,7 @@ Também confira:
 - ícones referenciados pelos metadados existentes;
 - links relativos para referências válidos;
 - ausência de caminhos absolutos, tokens e referências a diretórios externos;
-- cobertura das 18 subskills especializadas na matriz de roteamento.
+- cobertura das 17 subskills especializadas na matriz de roteamento.
 
 ## Preservação de fontes
 

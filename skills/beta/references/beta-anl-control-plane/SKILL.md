@@ -38,8 +38,8 @@ Use quando o objetivo principal for criar, consolidar, revisar ou reescrever um 
 
 Não use como primária quando o usuário ainda estiver investigando a causa de um incidente, definindo regra funcional, buscando explicação sobre funcionamento ou pedindo testes. Nesses casos, use a skill correspondente e gere o card somente quando essa for a intenção final.
 
-### `beta-anl-consulta-movidesk`
-Use como primária quando o objetivo principal for localizar, listar, filtrar, recuperar, comparar ou resumir tickets reais do Movidesk.
+### `beta-anl-movidesk`
+Use como primária quando o objetivo principal for localizar, listar, filtrar, recuperar, comparar ou resumir tickets reais do Movidesk, ou quando for necessária uma consulta direta às ferramentas do MCP Beta MOV.
 
 A simples presença de ticket, chamado, ID ou da palavra “Movidesk” não define a skill primária.
 
@@ -51,7 +51,7 @@ Se houver mistura de intenções:
 - incidente domina quando o objetivo principal for investigar causa, impacto, recorrência ou diagnóstico de um comportamento inesperado, mesmo que ele tenha sido encontrado durante QA;
 - regra de negócio domina quando a pergunta central for “qual deveria ser o comportamento?”, mesmo que a resposta posteriormente seja usada em um registro ou card;
 - dúvida funcional domina quando a pergunta for explicativa;
-- consulta Movidesk domina somente quando a recuperação de tickets for o objetivo final; se o ticket for apenas fonte para um card, teste ou registro de QA, a intenção principal correspondente permanece dominante.
+- consulta Movidesk domina somente quando a recuperação, consulta ou análise de tickets for o objetivo final; se o ticket for apenas fonte para um card, teste ou registro de QA, a intenção principal correspondente permanece dominante.
 
 Use uma skill primária. Consulte outras apenas como apoio quando necessário.
 

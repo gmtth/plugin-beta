@@ -82,7 +82,6 @@ def main(root: Path) -> int:
         "beta-anl-qa-testes",
         "beta-anl-qa-resultados",
         "beta-anl-gerador-cards-clickup",
-        "beta-anl-consulta-movidesk",
         "beta-anl-movidesk",
         "beta-mod-regras",
         "beta-mod-dossie",

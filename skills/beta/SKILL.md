@@ -34,8 +34,7 @@ Use as skills especializadas conforme a intenção:
 - `beta-anl-qa-testes`: criação ou revisão de checklist e cenários de teste.
 - `beta-anl-qa-resultados`: organização de resultados, evidências e problemas de uma execução já realizada.
 - `beta-anl-gerador-cards-clickup`: criação ou consolidação de card quando o conteúdo já estiver suficientemente definido.
-- `beta-anl-consulta-movidesk`: consulta de tickets quando a recuperação dos dados do Movidesk for o objetivo principal.
-- `beta-anl-movidesk`: execução direta das consultas somente leitura disponíveis pelo MCP Beta MOV.
+- `beta-anl-movidesk`: consulta analítica ou execução direta das consultas somente leitura disponíveis pelo MCP Beta MOV.
 
 Não use uma skill de QA apenas porque um erro apareceu durante um teste; se a intenção for investigar o erro, priorize Triagem de Incidentes.
 
@@ -47,7 +46,7 @@ Não use uma skill de QA apenas porque um erro apareceu durante um teste; se a i
 - Triagem domina quando o objetivo for causa, impacto, recorrência ou diagnóstico, mesmo que o achado tenha surgido em QA;
 - Regras de negócio domina quando a pergunta central for qual deveria ser o comportamento;
 - Dúvidas funcionais domina quando a pergunta for apenas explicativa;
-- Movidesk domina somente quando recuperar ou analisar tickets for o objetivo final; ticket usado como evidência mantém a intenção principal original.
+- Movidesk domina somente quando recuperar, consultar ou analisar dados do Movidesk for o objetivo final; ticket usado como evidência mantém a intenção principal original.
 
 Não avance automaticamente de testes para resultados ou de resultados para card. Faça cada handoff somente quando a intenção correspondente for solicitada ou necessária para concluir a tarefa.
 

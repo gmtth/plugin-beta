@@ -57,8 +57,8 @@
     "id": "anl-consulta-movidesk",
     "prompt": "Localize e compare os tickets do Movidesk relacionados a este sintoma.",
     "primary_mode": "ANL",
-    "primary_skill": "beta-anl-consulta-movidesk",
-    "allowed_helpers": ["beta-anl-movidesk"],
+    "primary_skill": "beta-anl-movidesk",
+    "allowed_helpers": [],
     "transitions": [],
     "assertions": ["usar escopo e filtros", "tratar ticket como evidência operacional"]
   },
@@ -184,7 +184,7 @@
     "prompt": "A modelagem precisa confirmar se este comportamento ocorreu em tickets reais do Movidesk.",
     "primary_mode": "MOD",
     "primary_skill": "beta-mod-fontes",
-    "allowed_helpers": ["beta-anl-consulta-movidesk", "beta-anl-movidesk"],
+    "allowed_helpers": ["beta-anl-movidesk"],
     "transitions": ["MOD->ANL"],
     "assertions": ["usar ticket como evidência", "retornar o achado para consolidação MOD"]
   }
