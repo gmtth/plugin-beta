@@ -53,7 +53,7 @@ Quando o objetivo for atualizar um clone web isolado do CENCIHUB, use `beta-site
 
 Não avance automaticamente de testes para resultados ou de resultados para card. Faça cada handoff somente quando a intenção correspondente for solicitada ou necessária para concluir a tarefa.
 
-Quando o modo ANL envolver comunicação com suporte/cliente, grau de certeza, protocolos detalhados de evidência operacional, ClickUp ou memória, consulte [beta-anl-control-plane/SKILL.md](references/beta-anl-control-plane/SKILL.md).
+Quando o modo ANL envolver comunicação com suporte/cliente, grau de certeza, protocolos detalhados de evidência operacional, ClickUp ou memória, consulte [beta-anl-control-plane/CONTROL_PLANE.md](references/beta-anl-control-plane/CONTROL_PLANE.md).
 
 ## Roteamento MOD
 
@@ -117,7 +117,7 @@ Quando o modo primário for MOD, preserve estas garantias da antiga orquestraç�
 - especificar efeito funcional, sem inventar tabela, endpoint, serviço, fila, retry, arquitetura ou outra implementação técnica;
 - ao final, produzir um resumo observável da execução sem expor cadeia de pensamento.
 
-Para o contrato MOD completo, consulte [beta-mod-control-plane/SKILL.md](references/beta-mod-control-plane/SKILL.md) e carregue referências internas somente quando o caso exigir.
+Para o contrato MOD completo, consulte [beta-mod-control-plane/CONTROL_PLANE.md](references/beta-mod-control-plane/CONTROL_PLANE.md) e carregue referências internas somente quando o caso exigir.
 
 ## Observabilidade e indisponibilidade
 
