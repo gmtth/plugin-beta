@@ -139,7 +139,7 @@ Quando o comportamento esperado não estiver disponível e não puder ser confir
 
 ## Comentários de resultados no ClickUp
 
-No ciclo integrado, use o checklist escolhido na etapa QA Testes. Quando o usuário aceitar iniciar QA Resultados, organize os estados informados para cada item: problema, sucesso, não executado ou bloqueado. Não presuma que o silêncio significa sucesso; antes de fechar a rodada, confirme que a execução terminou e que todos os problemas foram relatados.
+No ciclo integrado, use o checklist escolhido e publicado na etapa QA Testes. A publicação confirmada inicia QA Resultados; organize os estados informados para cada item: problema, sucesso, não executado ou bloqueado. Não presuma que o silêncio significa sucesso; antes de fechar a rodada, confirme que a execução terminou e que todos os problemas foram relatados.
 
 Quando QA Testes tiver passado o ID da tarefa e o usuário relatar problemas durante a execução, prepare um comentário independente para cada problema, sem combinar erros distintos. Use um identificador novo e único `Execução QA` para cada rodada e repita o mesmo identificador em todos os comentários daquela rodada. Esse identificador permite distinguir uma reexecução de problemas antigos.
 
@@ -155,7 +155,7 @@ Evidência: <evidência fornecida ou indicação de que não foi fornecida>
 
 Não invente evidência. Se houver mais de um problema, publique um comentário por problema, mesmo quando todos estiverem associados ao mesmo item do checklist.
 
-Antes de qualquer publicação, mostre o destino (tarefa identificada por título e link/ID) e o texto integral de cada comentário. Pergunte se o usuário aprova aquele lote exato. Só uma resposta afirmativa à prévia autoriza a publicação dos comentários apresentados; qualquer alteração posterior exige nova prévia e aprovação. A autorização não permite publicar o checklist, editar outros comentários ou alterar campos da tarefa.
+Antes de qualquer publicação, releia o status atual da tarefa e confirme que é exatamente `Teste Q.A.`. Se estiver diferente, indisponível ou ambíguo, bloqueie todos os comentários novos e informe o estado observado. Com o status correto, mostre o destino (tarefa identificada por título e link/ID) e o texto integral de cada comentário. Pergunte se o usuário aprova aquele lote exato. Só uma resposta afirmativa à prévia autoriza a publicação dos comentários apresentados; qualquer alteração posterior exige nova prévia e aprovação e nova conferência do status. A autorização não permite editar outros comentários ou alterar campos da tarefa.
 
 Publique os comentários somente se o conector ClickUp estiver disponível. Crie um comentário por problema e não acrescente comentário-resumo ou comentário de encerramento. Se o resultado da chamada for incerto, leia os comentários da tarefa antes de tentar novamente para evitar duplicidade. Se não houver aprovação ou acesso ao conector, mantenha os comentários como rascunhos na resposta e informe o estado.
 

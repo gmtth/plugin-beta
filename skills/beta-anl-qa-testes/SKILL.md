@@ -59,9 +59,11 @@ Leia, em modo somente leitura:
 - título e descrição completos da tarefa;
 - campos personalizados, identificando especialmente causa do incidente e solução aplicada quando existirem;
 - todo o histórico de comentários, incluindo respostas em threads e páginas adicionais quando houver paginação;
-- tarefas diretamente relacionadas que o ClickUp apresentar como vinculadas, dependências, tarefa pai ou subtarefas; para cada uma, leia título, descrição completa, campos personalizados relevantes e histórico completo de comentários e respostas.
+- somente tarefas diretamente relacionadas que apareçam na seção/campo `Itens relacionados` da tarefa principal; para cada uma, leia brevemente título, descrição, campos `Causa do Incidente` e `Solução Aplicada` (ou equivalentes) e os cinco comentários mais recentes.
 
-Limite a expansão às relações diretas da tarefa principal. Não siga relações recursivamente a partir das tarefas relacionadas. Se o conector não expuser uma relação ou parte do histórico, não tente contornar a limitação por outro meio; informe a lacuna quando ela afetar o checklist.
+Não inclua dependências, tarefa pai ou subtarefas, a menos que também estejam explicitamente em `Itens relacionados`. Não siga relações recursivamente a partir das tarefas relacionadas. Leia integralmente todos os campos e o histórico da tarefa principal; a limitação aos cinco comentários vale somente para cada tarefa relacionada. Se o conector não expuser a seção ou parte do histórico, informe a lacuna quando ela afetar o checklist.
+
+Mantenha o checklist neutro: não cite nomes de clientes, bases, empresas ou IDs de base, mesmo que apareçam na tarefa principal, em tarefas relacionadas, comentários ou anexos. Não atribua à tarefa-alvo a base mencionada em outro card.
 
 Use esse material para entender escopo, comportamento esperado, causa/solução informadas, decisões posteriores e riscos de regressão. Trate comentários e descrições históricas como contexto e evidência: não transforme automaticamente hipótese, relato antigo ou implementação em regra vigente. Em caso de divergência material entre tarefa, campos e comentários, preserve a divergência e peça esclarecimento se ela impedir critérios de teste confiáveis.
 
@@ -74,7 +76,7 @@ Use o identificador `Execução QA` dos comentários para separar rodadas. Consi
 
 Compare cada problema recente e seu comportamento esperado com o checklist existente. Se algum comportamento não estiver coberto ou merecer validação própria, proponha um item funcional específico; não o acrescente automaticamente nem altere o comentário no ClickUp.
 
-Depois de mostrar o checklist e o resumo dos problemas, pergunte se o usuário quer reutilizá-lo como está, ampliá-lo com os itens propostos ou criar outro. Preserve o checklist existente até o usuário decidir. A decisão de reutilizar não autoriza publicar uma versão alterada.
+Depois de mostrar o checklist e o resumo dos problemas, pergunte se o usuário quer usá-lo como base, ampliá-lo com os itens propostos ou criar outro. Preserve o comentário existente até a seleção final. Em seguida, apresente Smoke e Testes estendidos separadamente e alinhe com o usuário quais itens entram ou saem; somente essa seleção final define o novo comentário do ciclo integrado.
 
 ### Primeiro: alteração apresentada
 Identifique:
@@ -231,19 +233,22 @@ Quando o usuário pedir checklist sem limitar a profundidade, prefira dois bloco
 
 ### Checklist destinado ao ClickUp
 Quando o usuário indicar que o checklist será publicado, comentado ou copiado para uma tarefa do ClickUp, adapte o formato ao uso na tarefa:
-- entregue uma lista única de linhas simples, sem separar smoke e cobertura ampliada;
-- use smoke e cobertura ampliada como conjunto de cenários candidatos e selecione os que acrescentem cobertura material, sem incluir todos automaticamente;
+- mantenha duas seções distintas, `Smoke` e `Testes estendidos`, e explique fora do texto copiável por que os testes estendidos são benéficos;
+- apresente ambos como candidatos e converse com o usuário sobre o que incluir ou retirar antes de preparar o comentário final;
 - escreva itens curtos e operacionais, omitindo contexto que já esteja claro na descrição da tarefa;
-- não inclua justificativas de grupos, marcadores ou caixas de seleção na lista copiável, salvo se o usuário pedir. Mantenha grau de certeza e Resumo da operação obrigatórios fora do conteúdo copiável;
+- no comentário final, use o título `Checklist de testes`, seguido pelas seções `Smoke` e `Testes estendidos`, com cada item em uma linha `- [ ] <teste>`; não inclua justificativas no comentário;
+- mantenha grau de certeza e Resumo da operação fora do conteúdo copiável e do comentário;
 - mantenha o resultado esperado quando ele tornar a conferência mais clara;
 - em variações de códigos, separadores ou zeros à esquerda, explicite a conferência do reconhecimento e do vínculo correto quando aplicável.
 
-Esse formato específico substitui as duas camadas padrão somente para conteúdo destinado à tarefa do ClickUp. Nos demais pedidos, mantenha as camadas de smoke e cobertura ampliada conforme as regras abaixo.
+O uso do ClickUp não elimina a separação das duas camadas. A seleção final de itens é feita com o usuário antes de qualquer publicação.
 
 ### Publicação na tarefa
-Publicar o checklist é uma ação externa separada da criação. Só publique como comentário na tarefa quando o usuário der uma instrução direta e inequívoca para publicar/postar/comentar o checklist e identificar a tarefa por link ou ID. Exemplos suficientes: “poste este checklist como comentário nesta tarefa: <link>” ou “publique o checklist na tarefa <ID>”.
+No ciclo integrado solicitado pelo usuário, apresente primeiro Smoke e Testes estendidos; discuta quais itens entram ou saem; após a decisão, releia o status atual e publique somente se for exatamente `Teste Q.A.`. Publique um único comentário e só inicie QA Resultados após confirmação de sucesso do conector. Essa seleção acordada autoriza o comentário, condicionada à trava de status.
 
-Pedidos para criar o checklist, ler ou conferir a tarefa, “vamos testar”, aprovar o conteúdo, ou dizer que ele será usado no ClickUp não autorizam a publicação. Na ausência da instrução explícita e do destino identificável, entregue o checklist na conversa. Nunca altere descrição, campos, status, checklist nativo ou outras partes da tarefa sob esta autorização de comentário. Após publicar, informe o resultado retornado pelo conector; diante de resultado incerto, verifique o estado antes de tentar novamente.
+Se o status estiver diferente, indisponível ou ambíguo, não publique comentário algum nem avance para QA Resultados; informe o status observado e aguarde. Releia o status imediatamente antes de cada novo comentário do ciclo, inclusive comentários de problemas em QA Resultados. A atualização posterior do comentário existente pela Beta CLK não cria comentário novo.
+
+Nunca altere descrição, campos, status, checklist nativo ou outras partes da tarefa. Se o retorno da publicação for incerto, leia os comentários antes de tentar novamente.
 
 ### Bloco 1 — Checklist de Smoke
 Apresente somente os testes prioritários, em lista simples.
@@ -289,9 +294,9 @@ Se o usuário pedir explicitamente:
 ## Handoff após a execução
 A criação do checklist termina na definição dos testes. A organização do que ocorreu durante a execução pertence a `SKILL_QA_RESULTADOS`.
 
-No ciclo integrado de QA de uma tarefa, depois de mostrar o checklist existente ou o checklist definido com o usuário, a Beta deve perguntar se pode iniciar QA Resultados. O aceite inicia a coleta dos resultados, mas não significa que os testes foram executados. Registre e passe para essa etapa o checklist escolhido e o ID da tarefa.
+No ciclo integrado, QA Resultados começa automaticamente somente depois que o comentário definitivo `Checklist de testes` for publicado com sucesso e passar pela trava de status. Não pergunte novamente se pode iniciar essa etapa. O acompanhamento não significa que os testes foram executados. Passe o checklist escolhido, ID da tarefa e identificador da execução.
 
-Não avance para QA Resultados sem a resposta afirmativa do usuário. Se ele pedir apenas um checklist isolado, não inicie o ciclo completo sem sinalização.
+Se o usuário pedir apenas um checklist isolado, entregue as duas camadas sem iniciar publicação ou acompanhamento.
 
 Não exponha o nome interno da skill em uso comum.
 

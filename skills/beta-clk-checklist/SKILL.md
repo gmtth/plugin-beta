@@ -122,6 +122,8 @@ Usar esse bloqueio somente quando a impossibilidade de teste for direta e inequ�
 - Não alterar a ordem dos itens.
 - Não mover itens entre seções, salvo instrução explícita do usuário.
 - Não apagar títulos, seções ou observações.
+- Preservar as seções `Smoke` e `Testes estendidos` como títulos sem checkbox quando existirem; não misturar nem mover itens entre elas.
+- Não inserir nomes ou IDs de clientes/bases ao atualizar o comentário.
 - Converter itens marcáveis para Markdown de checklist do ClickUp: `- [x] Texto` ou `- [ ] Texto`.
 - Não usar emojis como substituto de checkbox.
 
