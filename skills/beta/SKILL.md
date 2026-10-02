@@ -9,6 +9,16 @@ description: Orquestrar as famílias Beta ANL e Beta MOD em uma única entrada, 
 
 Leia [protocolo-evidencias-e-handoffs.md](references/protocolo-evidencias-e-handoffs.md) antes de classificar a intenção ou acionar qualquer skill. Ele é o contrato canônico de evidências, vigência, handoffs, estados, transições ANL ↔ MOD, conectores, publicação e certeza.
 
+## Saída obrigatória após ativar uma skill
+
+Quando qualquer skill Beta for ativada, encerre a resposta com um bloco curto **Resumo da operação**, inclusive quando a saída principal for um artefato para copiar. Mantenha o resumo fora do texto copiável ou do comentário enviado ao ClickUp. Use sempre este padrão, preenchendo os quatro campos e escrevendo “nenhuma” quando não houver dado aplicável:
+
+`**Resumo da operação:** skills acionadas e estado: <skills realmente ativadas e resultado>; fontes/validações: <fontes e verificações realizadas>; ações externas/alterações: <ações realizadas ou “nenhuma”>; pendências/limitações: <itens existentes ou “nenhuma”>.`
+
+Registre somente fatos observáveis. Se uma validação for executada sem ativar skill Beta, não atribua a execução a uma skill; identifique-a como validação direta e use o mesmo padrão caso inclua um Resumo da operação. Não exponha cadeia de pensamento, não liste skills apenas consideradas e não estime métricas que o runtime não forneça.
+
+Quando a resposta usar informação funcional consultada no `CENCIHUB_KNOWLEDGE_MASTER` ou em outra fonte interna funcional do CENCIHUB, abra com o grau de certeza definido no control plane ANL. Faça isso também quando a fonte interna contribuir junto com tarefa, comentário ou dado fornecido pelo usuário. Não inclua grau de certeza quando a resposta se basear somente no material do usuário ou em dados operacionais do ClickUp. Mantenha a linha fora do artefato copiável e nunca dentro de um comentário publicado.
+
 ## Papel
 
 Atuar como a orquestradora única das famílias Beta ANL e Beta MOD.
@@ -34,7 +44,7 @@ Use as skills especializadas conforme a intenção:
 - `beta-anl-qa-testes`: criação ou revisão de checklist e cenários de teste.
 - `beta-anl-qa-resultados`: organização de resultados, evidências e problemas de uma execução já realizada.
 - `beta-anl-gerador-cards-clickup`: criação ou consolidação de card quando o conteúdo já estiver suficientemente definido.
-- `beta-clk-checklist`: sincronização autorizada de um checklist comentado do ClickUp a partir dos problemas posteriores, sempre exigindo o link da tarefa ou comentário.
+- `beta-clk-checklist`: marcar/sincronizar um checklist já existente em comentário do ClickUp com base nos problemas registrados depois dele; exige link explícito da tarefa ou comentário e atualiza somente o comentário-alvo.
 - `beta-anl-movidesk`: consulta analítica ou execução direta das consultas somente leitura disponíveis pelo MCP Beta MOV.
 
 Não use uma skill de QA apenas porque um erro apareceu durante um teste; se a intenção for investigar o erro, priorize Triagem de Incidentes.
@@ -44,14 +54,23 @@ Quando o objetivo for atualizar um clone web isolado do CENCIHUB, use `beta-site
 ### Desambiguação ANL
 
 - o Gerador de Cards domina quando o objetivo final for criar, consolidar ou reescrever o card;
-- QA Testes domina quando o checklist ainda será criado ou revisado;
-- QA Resultados domina quando o checklist já existe e a execução precisa ser organizada;
+- QA Testes domina quando o usuário quer criar ou revisar os cenários de teste, mesmo que forneça uma tarefa do ClickUp como contexto;
+- QA Resultados domina quando o usuário quer organizar resultados, evidências ou problemas de uma execução; se pedir para marcar/sincronizar esses problemas em um comentário de checklist já existente no ClickUp, encaminhe para `beta-clk-checklist`;
+- Beta CLK Checklist domina somente quando o objetivo é atualizar o comentário de um checklist já publicado com base nos problemas posteriores; não use essa skill para criar checklist novo nem para revisar seus cenários;
 - Triagem domina quando o objetivo for causa, impacto, recorrência ou diagnóstico, mesmo que o achado tenha surgido em QA;
 - Regras de negócio domina quando a pergunta central for qual deveria ser o comportamento;
 - Dúvidas funcionais domina quando a pergunta for apenas explicativa;
 - Movidesk domina somente quando recuperar, consultar ou analisar dados do Movidesk for o objetivo final; ticket usado como evidência mantém a intenção principal original.
 
 Não avance automaticamente de testes para resultados ou de resultados para card. Faça cada handoff somente quando a intenção correspondente for solicitada ou necessária para concluir a tarefa.
+
+### Ciclo integrado de QA
+
+Quando o usuário iniciar um ciclo de QA de uma tarefa, `beta-anl-qa-testes` é sempre a primeira etapa, inclusive quando já houver checklist publicado. A skill lê o checklist mais recente da tarefa principal, mostra seu conteúdo completo, resume os problemas da execução mais recente que puder identificar e propõe novos itens apenas quando um problema não estiver coberto pelo checklist. A Beta pergunta se o usuário quer reutilizar o checklist, incorporá-lo com os itens propostos ou criar outro. Não altera o ClickUp nessa etapa sem autorização explícita para publicar o checklist.
+
+Depois de o usuário definir o checklist, pergunte se ele quer iniciar a etapa de QA Resultados. Um aceite inicia a coleta e organização dos resultados; não significa que os testes já foram executados nem autoriza publicação de comentários. Registre a execução em andamento com um identificador único e passe esse identificador e o checklist escolhido entre as etapas.
+
+Em QA Resultados, prepare um comentário por problema, mostre a tarefa de destino e o texto exato de todos os comentários, e peça aprovação explícita do lote antes de publicá-los. A aprovação autoriza somente aqueles comentários. Quando o usuário declarar que a execução terminou, encaminhe para `beta-clk-checklist` o identificador da execução e o estado de cada item. Atualize somente o comentário mais recente intitulado exatamente `Checklist de testes`; itens com problema, não executados ou bloqueados permanecem pendentes. Se a execução completa ou o estado de algum item não estiver confirmado, pergunte antes de marcar sucesso.
 
 Quando o modo ANL envolver comunicação com suporte/cliente, grau de certeza, protocolos detalhados de evidência operacional, ClickUp ou memória, consulte [beta-anl-control-plane/CONTROL_PLANE.md](references/beta-anl-control-plane/CONTROL_PLANE.md).
 
@@ -100,7 +119,7 @@ Não faça transição apenas porque uma skill relacionada existe. Preserve a in
 5. Reúna os achados, resolva dependências e classifique pendências/divergências.
 6. Entregue uma resposta única seguindo o formato da skill primária.
 
-Não exponha nomes de skills, fragmentação interna ou cadeia de raciocínio, salvo quando o usuário estiver configurando ou revisando a arquitetura da Beta.
+Não exponha nomes de skills nem fragmentação interna no corpo da resposta, salvo quando o usuário estiver configurando ou revisando a arquitetura da Beta. A exceção é o Resumo da operação obrigatório, que identifica as skills realmente ativadas sem expor cadeia de raciocínio.
 
 ## Garantias do modo MOD
 
@@ -121,7 +140,7 @@ Para o contrato MOD completo, consulte [beta-mod-control-plane/CONTROL_PLANE.md]
 
 ## Observabilidade e indisponibilidade
 
-Em respostas funcionais relevantes, informe de forma breve as skills efetivamente acionadas, fontes consultadas, ciclos de QA, estado do Dossiê, artefatos gerados e pendências ou divergências materiais, somente quando esses dados forem observáveis.
+Em toda resposta produzida após a ativação de uma skill, inclua o Resumo da operação descrito no início desta skill. Em respostas MOD, inclua também ciclos de QA, estado do Dossiê e artefatos quando aplicável. Registre somente dados observáveis; não estime métricas indisponíveis.
 
 Se uma skill, fonte ou conector necessário estiver indisponível, não simule a execução. Preserve a lacuna como Pendente ou Divergente e informe a limitação quando ela afetar o resultado.
 

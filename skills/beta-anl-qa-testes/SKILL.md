@@ -52,6 +52,30 @@ Quando causa ou solução técnica já forem fornecidas pelo usuário, utilize e
 
 ## Modo de leitura da base
 
+### Tarefa do ClickUp informada pelo usuário
+Quando o usuário fornecer o link ou ID de uma tarefa do ClickUp como contexto para criar ou revisar testes, consulte a tarefa antes de redigir o checklist. Não presuma que o link sozinho autoriza qualquer alteração no ClickUp.
+
+Leia, em modo somente leitura:
+- título e descrição completos da tarefa;
+- campos personalizados, identificando especialmente causa do incidente e solução aplicada quando existirem;
+- todo o histórico de comentários, incluindo respostas em threads e páginas adicionais quando houver paginação;
+- tarefas diretamente relacionadas que o ClickUp apresentar como vinculadas, dependências, tarefa pai ou subtarefas; para cada uma, leia título, descrição completa, campos personalizados relevantes e histórico completo de comentários e respostas.
+
+Limite a expansão às relações diretas da tarefa principal. Não siga relações recursivamente a partir das tarefas relacionadas. Se o conector não expuser uma relação ou parte do histórico, não tente contornar a limitação por outro meio; informe a lacuna quando ela afetar o checklist.
+
+Use esse material para entender escopo, comportamento esperado, causa/solução informadas, decisões posteriores e riscos de regressão. Trate comentários e descrições históricas como contexto e evidência: não transforme automaticamente hipótese, relato antigo ou implementação em regra vigente. Em caso de divergência material entre tarefa, campos e comentários, preserve a divergência e peça esclarecimento se ela impedir critérios de teste confiáveis.
+
+Se o usuário não fornecer link ou ID e não houver uma tarefa inequívoca já estabelecida no contexto, não pesquise nem escolha uma tarefa por conta própria. Crie o checklist com as informações disponíveis e sinalize a limitação apenas se ela afetar materialmente os testes.
+
+### Checklist existente e resultados anteriores
+Na tarefa principal, procure o comentário mais recente cujo título/primeira linha seja exatamente `Checklist de testes` (ignorando apenas maiúsculas/minúsculas e um marcador Markdown de título). Mostre o checklist completo, mantendo texto, ordem e marcações, e resuma os problemas associados à execução mais recente que puder identificar.
+
+Use o identificador `Execução QA` dos comentários para separar rodadas. Considere os comentários sem identificador como histórico legado; se não for possível distinguir com segurança qual execução é a mais recente, apresente essa limitação e pergunte qual conjunto de problemas deve orientar o novo checklist. Não misture checklists encontrados nas tarefas relacionadas: use-as somente como contexto funcional.
+
+Compare cada problema recente e seu comportamento esperado com o checklist existente. Se algum comportamento não estiver coberto ou merecer validação própria, proponha um item funcional específico; não o acrescente automaticamente nem altere o comentário no ClickUp.
+
+Depois de mostrar o checklist e o resumo dos problemas, pergunte se o usuário quer reutilizá-lo como está, ampliá-lo com os itens propostos ou criar outro. Preserve o checklist existente até o usuário decidir. A decisão de reutilizar não autoriza publicar uma versão alterada.
+
 ### Primeiro: alteração apresentada
 Identifique:
 - comportamento anterior ou problema;
@@ -205,6 +229,22 @@ Prefira checklist simples:
 
 Quando o usuário pedir checklist sem limitar a profundidade, prefira dois blocos separados.
 
+### Checklist destinado ao ClickUp
+Quando o usuário indicar que o checklist será publicado, comentado ou copiado para uma tarefa do ClickUp, adapte o formato ao uso na tarefa:
+- entregue uma lista única de linhas simples, sem separar smoke e cobertura ampliada;
+- use smoke e cobertura ampliada como conjunto de cenários candidatos e selecione os que acrescentem cobertura material, sem incluir todos automaticamente;
+- escreva itens curtos e operacionais, omitindo contexto que já esteja claro na descrição da tarefa;
+- não inclua justificativas de grupos, marcadores ou caixas de seleção na lista copiável, salvo se o usuário pedir. Mantenha grau de certeza e Resumo da operação obrigatórios fora do conteúdo copiável;
+- mantenha o resultado esperado quando ele tornar a conferência mais clara;
+- em variações de códigos, separadores ou zeros à esquerda, explicite a conferência do reconhecimento e do vínculo correto quando aplicável.
+
+Esse formato específico substitui as duas camadas padrão somente para conteúdo destinado à tarefa do ClickUp. Nos demais pedidos, mantenha as camadas de smoke e cobertura ampliada conforme as regras abaixo.
+
+### Publicação na tarefa
+Publicar o checklist é uma ação externa separada da criação. Só publique como comentário na tarefa quando o usuário der uma instrução direta e inequívoca para publicar/postar/comentar o checklist e identificar a tarefa por link ou ID. Exemplos suficientes: “poste este checklist como comentário nesta tarefa: <link>” ou “publique o checklist na tarefa <ID>”.
+
+Pedidos para criar o checklist, ler ou conferir a tarefa, “vamos testar”, aprovar o conteúdo, ou dizer que ele será usado no ClickUp não autorizam a publicação. Na ausência da instrução explícita e do destino identificável, entregue o checklist na conversa. Nunca altere descrição, campos, status, checklist nativo ou outras partes da tarefa sob esta autorização de comentário. Após publicar, informe o resultado retornado pelo conector; diante de resultado incerto, verifique o estado antes de tentar novamente.
+
 ### Bloco 1 — Checklist de Smoke
 Apresente somente os testes prioritários, em lista simples.
 
@@ -249,9 +289,9 @@ Se o usuário pedir explicitamente:
 ## Handoff após a execução
 A criação do checklist termina na definição dos testes. A organização do que ocorreu durante a execução pertence a `SKILL_QA_RESULTADOS`.
 
-Depois de gerar um checklist, quando houver perspectiva de execução e o usuário não tiver pedido somente o artefato puro, pode incluir uma única sugestão curta e opcional de próximo passo, por exemplo:
+No ciclo integrado de QA de uma tarefa, depois de mostrar o checklist existente ou o checklist definido com o usuário, a Beta deve perguntar se pode iniciar QA Resultados. O aceite inicia a coleta dos resultados, mas não significa que os testes foram executados. Registre e passe para essa etapa o checklist escolhido e o ID da tarefa.
 
-“Quando executar os testes, posso organizar os problemas encontrados por item do checklist, comportamento esperado e evidência.”
+Não avance para QA Resultados sem a resposta afirmativa do usuário. Se ele pedir apenas um checklist isolado, não inicie o ciclo completo sem sinalização.
 
 Não exponha o nome interno da skill em uso comum.
 

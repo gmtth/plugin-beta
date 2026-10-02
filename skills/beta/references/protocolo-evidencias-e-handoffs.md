@@ -121,6 +121,16 @@ Separe fato, regra, evidência complementar, hipótese, lacuna e recomendação.
 
 Quando a resposta utilizar conhecimento interno, aplique o grau de certeza definido pela `beta` e pela skill primária. Quando o usuário pedir somente um artefato reutilizável em formato rígido, não insira o protocolo dentro do artefato.
 
+## Resumo obrigatório da operação
+
+Sempre que qualquer skill Beta for ativada, encerre a resposta com um bloco curto `Resumo da operação`, inclusive quando a saída principal for somente um artefato copiável. Mantenha o bloco fora do artefato ou de qualquer comentário publicado.
+
+Use sempre este padrão, preenchendo os quatro campos e escrevendo “nenhuma” quando não houver dado aplicável:
+
+`**Resumo da operação:** skills acionadas e estado: <skills realmente ativadas e resultado>; fontes/validações: <fontes e verificações realizadas>; ações externas/alterações: <ações realizadas ou “nenhuma”>; pendências/limitações: <itens existentes ou “nenhuma”>.`
+
+Registre somente fatos observáveis. Se uma validação for executada sem ativar skill Beta, não atribua a execução a uma skill; identifique-a como validação direta e use o mesmo padrão caso inclua um Resumo da operação. Não exponha cadeia de pensamento, não liste skills apenas consideradas e não estime métricas que o runtime não forneça.
+
 ## Carregamento progressivo
 
 A `beta` deve carregar este protocolo antes do roteamento. Uma subskill chamada diretamente deve carregá-lo antes de responder. Quando a `beta` já o tiver carregado, a subskill deve aplicar o contrato sem reler desnecessariamente o arquivo e complementar apenas com suas regras específicas.
