@@ -42,7 +42,7 @@
     "primary_skill": "beta-anl-qa-testes",
     "allowed_helpers": ["beta-anl-qa-resultados"],
     "transitions": [],
-    "assertions": ["checklist neutro sem nome ou ID de base", "tarefa principal lida integralmente", "relacionados limitados a Itens relacionados e cinco comentários recentes", "Smoke e testes estendidos apresentados separadamente com benefício explicado", "comentário bloqueado se status não for exatamente teste q.a.", "comentário Checklist de testes usa itens - [ ]", "QA Resultados só começa após publicação confirmada"]
+    "assertions": ["checklist neutro sem nome ou ID de base", "tarefa principal lida integralmente", "relacionados limitados a Itens relacionados e cinco comentários recentes", "Smoke e testes estendidos apresentados separadamente com benefício explicado", "comentário bloqueado se status não for exatamente teste q.a.", "comentário Checklist de testes contém título e apenas itens - [ ] em linhas consecutivas sem rótulos de camada", "QA Resultados só começa após publicação confirmada"]
   },
   {
     "id": "anl-qa-resultados",

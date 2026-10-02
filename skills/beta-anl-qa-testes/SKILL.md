@@ -236,7 +236,7 @@ Quando o usuário indicar que o checklist será publicado, comentado ou copiado 
 - mantenha duas seções distintas, `Smoke` e `Testes estendidos`, e explique fora do texto copiável por que os testes estendidos são benéficos;
 - apresente ambos como candidatos e converse com o usuário sobre o que incluir ou retirar antes de preparar o comentário final;
 - escreva itens curtos e operacionais, omitindo contexto que já esteja claro na descrição da tarefa;
-- no comentário final, use o título `Checklist de testes`, seguido pelas seções `Smoke` e `Testes estendidos`, com cada item em uma linha `- [ ] <teste>`; não inclua justificativas no comentário;
+- no comentário final, use somente o título `Checklist de testes` e os itens selecionados, um por linha no formato `- [ ] <teste>`; não identifique itens ou grupos como Smoke/Testes estendidos nem inclua explicações ou conteúdo adicional;
 - mantenha grau de certeza e Resumo da operação fora do conteúdo copiável e do comentário;
 - mantenha o resultado esperado quando ele tornar a conferência mais clara;
 - em variações de códigos, separadores ou zeros à esquerda, explicite a conferência do reconhecimento e do vínculo correto quando aplicável.
