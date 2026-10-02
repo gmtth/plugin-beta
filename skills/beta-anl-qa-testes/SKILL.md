@@ -244,9 +244,9 @@ Quando o usuário indicar que o checklist será publicado, comentado ou copiado 
 O uso do ClickUp não elimina a separação das duas camadas. A seleção final de itens é feita com o usuário antes de qualquer publicação.
 
 ### Publicação na tarefa
-No ciclo integrado solicitado pelo usuário, apresente primeiro Smoke e Testes estendidos; discuta quais itens entram ou saem; após a decisão, releia o status atual e publique somente se for exatamente `Teste Q.A.`. Publique um único comentário e só inicie QA Resultados após confirmação de sucesso do conector. Essa seleção acordada autoriza o comentário, condicionada à trava de status.
+No ciclo integrado solicitado pelo usuário, apresente primeiro Smoke e Testes estendidos; discuta quais itens entram ou saem; após a decisão, releia o status atual e publique somente se for exatamente `teste q.a.`. Publique um único comentário e só inicie QA Resultados após confirmação de sucesso do conector. Essa seleção acordada autoriza o comentário, condicionada à trava de status.
 
-Se o status estiver diferente, indisponível ou ambíguo, não publique comentário algum nem avance para QA Resultados; informe o status observado e aguarde. Releia o status imediatamente antes de cada novo comentário do ciclo, inclusive comentários de problemas em QA Resultados. A atualização posterior do comentário existente pela Beta CLK não cria comentário novo.
+Se o status estiver diferente, indisponível ou ambíguo, não publique comentário algum nem avance para QA Resultados; informe o status observado e aguarde. O nome do status é sensível à grafia retornada pelo ClickUp: compare literalmente com `teste q.a.`. Releia o status imediatamente antes de cada novo comentário do ciclo, inclusive comentários de problemas em QA Resultados. A atualização posterior do comentário existente pela Beta CLK não cria comentário novo.
 
 Nunca altere descrição, campos, status, checklist nativo ou outras partes da tarefa. Se o retorno da publicação for incerto, leia os comentários antes de tentar novamente.
 

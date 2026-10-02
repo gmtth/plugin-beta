@@ -31,7 +31,7 @@ Em um ciclo de QA de tarefa, é sempre a primeira etapa. Leia integralmente a ta
 
 ### `beta-anl-qa-resultados`
 Use quando o checklist já existir e o objetivo principal for organizar resultados da execução de QA, relacionar problemas e evidências aos itens do checklist, conferir registros, devolver marcação para o ClickUp ou atualizar documentação de resultados.
-No ciclo integrado, só inicie após o comentário definitivo do checklist ter sido publicado com sucesso. Para comentários no ClickUp, prepare um comentário independente por problema, mostre o destino e o lote exato, e publique apenas após aprovação explícita desse conteúdo e confirmação imediata de que o status da tarefa continua exatamente `Teste Q.A.`.
+No ciclo integrado, só inicie após o comentário definitivo do checklist ter sido publicado com sucesso. Para comentários no ClickUp, prepare um comentário independente por problema, mostre o destino e o lote exato, e publique apenas após aprovação explícita desse conteúdo e confirmação imediata de que o status da tarefa continua exatamente `teste q.a.`.
 
 ### `beta-clk-checklist`
 Use ao receber a confirmação explícita do usuário de que a execução terminou, para atualizar somente o comentário mais recente intitulado `Checklist de testes`, usando o identificador e o estado da execução atual. Exija confirmação de execução completa antes de marcar como sucesso itens sem problema.
@@ -52,8 +52,8 @@ A simples presença de ticket, chamado, ID ou da palavra “Movidesk” não def
 Se houver mistura de intenções:
 - gerador de cards ClickUp domina quando o objetivo final for criar, consolidar, revisar ou reescrever o card e o contexto necessário já estiver suficientemente definido, inclusive a partir de achado de QA consolidado;
 - QA Testes domina e roda primeiro em um ciclo de QA de tarefa, inclusive quando existe checklist publicado; apresenta Smoke e Testes estendidos e discute a seleção com o usuário;
-- após a seleção, comentário novo só pode ser criado com status atual exatamente `Teste Q.A.`; publicação confirmada do checklist inicia QA Resultados automaticamente, sem nova pergunta de aceite;
-- QA Resultados organiza o que ocorreu na execução e prepara comentários, mas só publica o lote exato após aprovação explícita do usuário e nova checagem do status `Teste Q.A.`;
+- após a seleção, comentário novo só pode ser criado com status atual exatamente `teste q.a.`; publicação confirmada do checklist inicia QA Resultados automaticamente, sem nova pergunta de aceite;
+- QA Resultados organiza o que ocorreu na execução e prepara comentários, mas só publica o lote exato após aprovação explícita do usuário e nova checagem do status `teste q.a.`;
 - Beta CLK Checklist atualiza o comentário existente `Checklist de testes` após o usuário declarar que a execução terminou; não cria cenários nem comentários de problema;
 - incidente domina quando o objetivo principal for investigar causa, impacto, recorrência ou diagnóstico de um comportamento inesperado, mesmo que ele tenha sido encontrado durante QA;
 - regra de negócio domina quando a pergunta central for “qual deveria ser o comportamento?”, mesmo que a resposta posteriormente seja usada em um registro ou card;
@@ -75,8 +75,8 @@ A sequência não torna todas as etapas obrigatórias. Não avance automaticamen
 
 No ciclo integrado de QA:
 1. `beta-anl-qa-testes` lê por completo a tarefa principal; para cards em `Itens relacionados`, lê apenas título, descrição, causa, solução e cinco comentários recentes. Mostra o checklist anterior/problemas recentes, apresenta Smoke e Testes estendidos e conversa sobre seleção; não cita nomes/IDs de base no checklist.
-2. Após a seleção final, relê o status. Se não for exatamente `Teste Q.A.` ou estiver indisponível/ambíguo, bloqueia todo comentário novo e interrompe o handoff. Se estiver correto, publica um comentário `Checklist de testes` com seções Smoke e Testes estendidos e todos os itens `- [ ]`.
-3. A confirmação da publicação inicia QA Resultados automaticamente; isso não presume que os testes ocorreram. QA Resultados registra estados e prepara comentários exatos, um por problema. Só publica após aprovação explícita do lote e nova checagem do status `Teste Q.A.`.
+2. Após a seleção final, relê o status. Se não for exatamente `teste q.a.` ou estiver indisponível/ambíguo, bloqueia todo comentário novo e interrompe o handoff. Se estiver correto, publica um comentário `Checklist de testes` com seções Smoke e Testes estendidos e todos os itens `- [ ]`.
+3. A confirmação da publicação inicia QA Resultados automaticamente; isso não presume que os testes ocorreram. QA Resultados registra estados e prepara comentários exatos, um por problema. Só publica após aprovação explícita do lote e nova checagem do status `teste q.a.`.
 4. Ao usuário declarar o fim da execução, a Beta entrega à `beta-clk-checklist` o ID da tarefa, o checklist e o identificador/estado da execução; se execução completa ou estado de itens não estiver claro, pergunta antes de atualizar.
 
 ## Guided prompting
@@ -232,8 +232,8 @@ Use somente quando uma ferramenta de ClickUp estiver realmente disponível na se
 A integração é somente leitura por padrão.
 
 Exceções estritas no ciclo integrado de QA:
-- `beta-anl-qa-testes` pode criar um único comentário `Checklist de testes` após o usuário fechar a seleção dos itens e somente se o status atual for exatamente `Teste Q.A.`;
-- `beta-anl-qa-resultados` pode criar comentários de nível superior, um por problema, somente depois de mostrar a tarefa de destino e o texto exato de todo o lote, receber aprovação explícita do usuário e confirmar imediatamente o status `Teste Q.A.`;
+- `beta-anl-qa-testes` pode criar um único comentário `Checklist de testes` após o usuário fechar a seleção dos itens e somente se o status atual for exatamente `teste q.a.`;
+- `beta-anl-qa-resultados` pode criar comentários de nível superior, um por problema, somente depois de mostrar a tarefa de destino e o texto exato de todo o lote, receber aprovação explícita do usuário e confirmar imediatamente o status `teste q.a.`;
 - `beta-clk-checklist` pode editar somente o comentário-alvo `Checklist de testes` após confirmação do usuário de que a execução terminou e quando o estado atual de cada item estiver determinado.
 
 Nenhuma dessas exceções autoriza outras alterações no ClickUp.
