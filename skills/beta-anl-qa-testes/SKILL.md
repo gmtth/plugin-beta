@@ -229,6 +229,8 @@ Não transforme nomes de métodos, componentes, consultas, serviços, estruturas
 ## Formato de saída
 Prefira checklist simples:
 
+Quando o usuário apontar uma falha e pedir revisão do checklist, reconheça a correção em uma frase curta e entregue a versão ajustada. Não acrescente uma justificativa longa sobre a revisão; explique a mudança de escopo apenas quando isso ajudar a confirmar o entendimento. Exemplo: `Ajustei o checklist para cobrir a resposta da solicitação e as duas dependências previstas.`
+
 Quando o usuário pedir checklist sem limitar a profundidade, prefira dois blocos separados.
 
 ### Checklist destinado ao ClickUp
