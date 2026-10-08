@@ -92,11 +92,12 @@ Extrair como itens citados as linhas iniciais que correspondam semanticamente ou
 
 ## Regra de marcação
 
+Ao atualizar um comentário de checklist, mantenha o formato fixo: primeira linha `**Checklist de testes**`, linha em branco e cada teste em uma linha com `- [ ]` ou `- [x]`. Preserve o texto e a ordem dos testes; normalize título e marcadores para esse formato quando o comentário estiver em formato antigo. Não acrescente rótulos de Smoke/Testes estendidos ou outros títulos ao comentário.
+
 Para cada item existente no comentário de checklist, considere somente o estado confirmado da rodada atual:
 
 - usar `- [ ]` para item com problema, não executado, bloqueado, não validado ou incerto;
 - usar `- [x]` somente se o usuário/Beta confirmar que o item foi executado com sucesso na rodada atual e a execução completa terminou com todos os problemas relatados;
-- manter títulos e nomes de seções como texto normal, sem checkbox, salvo se já forem itens marcáveis no checklist original.
 
 Um problema registrado em rodada anterior não impede marcar como concluído um item que foi reexecutado com sucesso na rodada atual. Se os estados ou a confirmação de execução completa não forem suficientes, não presumir sucesso: peça esclarecimento antes da edição. Se nenhum problema ocorreu, só marcar os itens como concluídos quando houver confirmação explícita de sucesso integral no contexto da Beta.
 
@@ -120,9 +121,8 @@ Usar esse bloqueio somente quando a impossibilidade de teste for direta e inequ�
 - Preservar todo o conteúdo do comentário que não precise mudar.
 - Não reescrever textos dos itens.
 - Não alterar a ordem dos itens.
-- Não mover itens entre seções, salvo instrução explícita do usuário.
-- Não apagar títulos, seções ou observações.
-- Preservar as seções `Smoke` e `Testes estendidos` como títulos sem checkbox quando existirem; não misturar nem mover itens entre elas.
+- Ao normalizar um comentário antigo, manter somente o título fixo e os itens de teste; não incluir títulos de seção ou observações no comentário final.
+- Não criar seções `Smoke` e `Testes estendidos` no comentário; os grupos são usados somente na conversa de seleção, fora do checklist publicado.
 - Não inserir nomes ou IDs de clientes/bases ao atualizar o comentário.
 - Converter itens marcáveis para Markdown de checklist do ClickUp: `- [x] Texto` ou `- [ ] Texto`.
 - Não usar emojis como substituto de checkbox.
