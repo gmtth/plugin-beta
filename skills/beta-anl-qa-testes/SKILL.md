@@ -107,6 +107,8 @@ Use incidentes para identificar:
 - cenários equivalentes relevantes;
 - efeitos colaterais já observados.
 
+Use também a base de conhecimento da Beta e exemplos de QA do usuário para sugerir cenários que possam estar faltando. Trate cada sugestão como candidata e só a inclua quando houver relação direta com o comportamento alterado, o escopo confirmado ou uma regressão conhecida. A tarefa atual continua delimitando o checklist: conhecimento histórico não cria requisito nem substitui uma regra vigente.
+
 ### Evidência operacional complementar
 Consulte o Movidesk quando casos reais puderem revelar:
 - regressões conhecidas;
@@ -150,7 +152,7 @@ Selecione, dentro da estratégia de cobertura, somente os cenários de maior val
 - troca ou continuidade do fluxo quando houver risco de seleção ou estado residual;
 - persistência, limpeza ou recarregamento quando forem materialmente relevantes.
 
-Como referência, prefira aproximadamente **8 a 12 itens** quando houver cobertura suficiente para isso. O número não é obrigatório e deve ser reduzido ou ampliado conforme o risco real.
+O smoke não deve ser entregue como um único item genérico. Separe os pontos de verificação funcionais relevantes em mais de um item, mesmo quando fizerem parte do mesmo fluxo. Quando sustentado pelo escopo, cubra a ação principal, o resultado observado e a persistência ou uma condição próxima. Não imponha uma quantidade fixa nem acrescente cenários apenas para aumentar a lista; se as informações só sustentarem um ponto de verificação, sinalize a lacuna em vez de inventar cobertura.
 
 O smoke deve evitar variações que tragam pouca informação nova.
 
@@ -188,6 +190,8 @@ Quando o usuário pedir smoke, produza lista curta para confirmar:
 - persistência ou reflexo correto do resultado;
 - ausência de regressão óbvia no cenário equivalente mais próximo.
 
+Apresente mais de um item de smoke, com verificações funcionais distintas e executáveis. Se o escopo parecer ter apenas um critério, procure pontos separados do mesmo fluxo que possam ser conferidos sem criar regra nova; se isso não for possível com as informações disponíveis, sinalize a lacuna e não infle a lista artificialmente.
+
 Não transforme smoke em regressão completa.
 
 Quando o usuário não pedir apenas smoke, o smoke deve aparecer primeiro como a camada curta e prioritária da resposta.
@@ -196,7 +200,7 @@ Prefira itens objetivos e operacionais.
 
 Quando houver referência de estilo do usuário, o smoke deve seguir esse padrão em vez de transformar cada linha em um caso de teste formal.
 
-O formato `- [ ] Ação ou condição — resultado esperado.` continua válido quando ajudar a evitar ambiguidade, mas não é obrigatório em todos os itens.
+Use caixas de seleção somente quando o usuário pedir esse formato. Se houver referência de estilo do usuário, prefira linhas simples, sem marcador, caixa ou numeração.
 
 Ações isoladas podem ser usadas quando o contexto e os itens seguintes deixarem clara a validação esperada. Evite apenas itens que possam ser interpretados de formas materialmente diferentes.
 
@@ -236,7 +240,7 @@ Quando o usuário indicar que o checklist será publicado, comentado ou copiado 
 - mantenha duas seções distintas, `Smoke` e `Testes estendidos`, e explique fora do texto copiável por que os testes estendidos são benéficos;
 - apresente ambos como candidatos e converse com o usuário sobre o que incluir ou retirar antes de preparar o comentário final;
 - escreva itens curtos e operacionais, omitindo contexto que já esteja claro na descrição da tarefa;
-- no comentário final, use somente o título `Checklist de testes` e os itens selecionados, um por linha no formato `- [ ] <teste>`; não identifique itens ou grupos como Smoke/Testes estendidos nem inclua explicações ou conteúdo adicional;
+- no comentário final, use somente o título `Checklist de testes` e os itens selecionados, cada um em uma linha simples, sem marcador, caixa de seleção ou numeração; não identifique itens ou grupos como Smoke/Testes estendidos nem inclua explicações ou conteúdo adicional;
 - mantenha grau de certeza e Resumo da operação fora do conteúdo copiável e do comentário;
 - mantenha o resultado esperado quando ele tornar a conferência mais clara;
 - em variações de códigos, separadores ou zeros à esquerda, explicite a conferência do reconhecimento e do vínculo correto quando aplicável.
@@ -277,8 +281,8 @@ Formato recomendado:
 
 **Por que testar:** explicação curta do risco funcional e da relação com a alteração.
 
-- [ ] Ação ou condição — resultado esperado.
-- [ ] Ação ou condição — resultado esperado.
+Ação ou condição — resultado esperado.
+Ação ou condição — resultado esperado.
 
 Os itens devem ser independentes, objetivos e observáveis.
 
@@ -309,6 +313,9 @@ Não inclua essa sugestão quando:
 Se o usuário começar a relatar resultados, erros ou evidências de execução após o checklist, trate a nova intenção conforme o Router em vez de continuar ampliando os testes automaticamente.
 
 ## Regras de escrita
+- Pense como QA Sênior: use causa, evidências e condições do fluxo para identificar riscos e regressões relevantes, sem ampliar o escopo nem criar requisito.
+- Fale como QA Funcional: descreva o que a pessoa faz e o que consegue observar no sistema. Traduza detalhes de implementação em cenários funcionais; não reproduza identificadores, nomes de propriedades, classes, métodos, tabelas, caminhos, endpoints ou mensagens internas no checklist.
+- Se um detalhe técnico não puder ser traduzido em comportamento observável sem presumir uma regra, não o transforme em teste. Informe a lacuna fora do checklist quando ela impedir um critério confiável.
 - Use linguagem funcional e direta.
 - Escreva o teste pela perspectiva do comportamento do sistema.
 - Inclua o resultado esperado no próprio item quando evitar ambiguidade.
