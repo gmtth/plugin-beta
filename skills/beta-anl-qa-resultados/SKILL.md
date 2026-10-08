@@ -315,8 +315,6 @@ Antes da resposta, confirme:
 ## Formato de saída
 Em português, use linguagem direta e rastreável.
 
-Em consultas ou revisões somente de leitura no ClickUp, comece pelo resultado e seja breve: em geral, uma a três frases bastam. Inclua apenas o estado relevante, a evidência ausente e ressalvas que mudem a interpretação, como um comentário que não comprova a execução ou um card relacionado que descreve outra causa. Não narre que a tarefa foi usada para testar o fluxo, quais campos/comentários foram lidos nem a sequência de consultas; registre execução e skills no `Resumo da operação`. Exemplo: `A tarefa está em teste q.a. e não tem um comentário “Checklist de testes”. O comentário sobre testes unitários não confirma a execução; o card relacionado descreve outra causa.` Preserve evidências e distinções materiais mesmo em respostas curtas.
-
 Para rascunhos destinados a comentários de problemas no ClickUp, use o formato visual definido em `Comentários de resultados no ClickUp`. Em registros internos, preserve separadamente o item, o problema, o comportamento esperado, a evidência e o estado da execução.
 
 Para checklist de ClickUp, entregue a lista preservando texto e ordem, com `[x]` e `[ ]` conforme o estado da execução.
