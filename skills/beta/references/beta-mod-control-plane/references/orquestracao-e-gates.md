@@ -107,6 +107,6 @@ Quando houver DOCX, a Skill genérica `docx` pode atuar como camada técnica sem
 Entregar:
 - resposta/modelagem única;
 - Dossiê separado quando solicitado ou quando a política de artefato final exigir;
-- resumo de execução observável.
+- Resumo da operação observável.
 
 Não expor cadeia de pensamento.

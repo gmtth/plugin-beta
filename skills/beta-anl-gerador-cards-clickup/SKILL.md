@@ -5,7 +5,7 @@ description: Criar, consolidar e revisar cards do ClickUp com análise funcional
 
 ## Protocolo transversal obrigatório
 
-Aplique este baseline: separe fatos, regras confirmadas e hipóteses; ticket e histórico são evidências, não regras; não invente nem simule conectores indisponíveis. Consulte somente as seções pertinentes do [protocolo compartilhado](../beta/references/protocolo-evidencias-e-handoffs.md) quando houver conflito/vigência de fontes, certeza, publicação, transição entre modos ou ação em conector. Se a `beta` já carregou o protocolo, não o releia.
+Aplique este baseline: separe fatos, regras confirmadas e hipóteses; ticket e histórico são evidências, não regras; não invente nem simule conectores indisponíveis. Responda diretamente, sem narrar ativação, roteamento, handoffs ou ferramentas; deixe skills e execução no Resumo da operação. Preserve detalhes técnicos materiais ou pedidos. Consulte somente as seções pertinentes do [protocolo compartilhado](../beta/references/protocolo-evidencias-e-handoffs.md) quando houver conflito/vigência de fontes, certeza, publicação, transição entre modos ou ação em conector. Se a `beta` já carregou o protocolo, não o releia.
 
 Esta skill adapta o contrato original de `SKILL_GERADOR_CARDS_CLICKUP` para o formato Codex. Preserve as regras e restrições abaixo; consulte a fonte original em `references/origem-SKILL_GERADOR_CARDS_CLICKUP-v005.md` quando houver dúvida de rastreabilidade.
 

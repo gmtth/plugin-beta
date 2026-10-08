@@ -31,7 +31,7 @@ Nunca estimar tempo por Skill.
 
 ## Formato recomendado
 
-### Resumo de execução
+### Resumo da operação
 
 - Skills: `@beta-mod-regras` (concluída), `@beta-mod-dossie` (concluída), ...
 - Tempo por Skill: não disponível

@@ -43,7 +43,7 @@ Para toda modelagem funcional relevante:
 12. Se QA encontrar achado material solucionável pelas fontes existentes, reabrir a Skill temática correspondente, reconsolidar e executar QA novamente.
 13. Acionar `@beta-mod-artefatos` somente após consolidação, Dossiê, filtro e QA, quando houver entrega documental.
 14. Entregar uma resposta única; não expor fragmentação interna das Skills como se fossem documentos concorrentes.
-15. Encerrar respostas funcionais relevantes com um resumo curto de execução observável.
+15. Encerrar respostas funcionais relevantes com um `Resumo da operação` curto e observável.
 
 Não pular etapa obrigatória por a solicitação parecer simples.
 
@@ -265,11 +265,13 @@ Carregar somente:
 
 Ler [references/orquestracao-e-gates.md](references/orquestracao-e-gates.md) para o contrato operacional completo.
 Ler [references/legado-preservado.md](references/legado-preservado.md) somente ao validar equivalência com o GPT Mestre legado ou revisar a arquitetura da família.
-Ler [references/observabilidade.md](references/observabilidade.md) antes de produzir o resumo de execução.
+Ler [references/observabilidade.md](references/observabilidade.md) antes de produzir o Resumo da operação.
 
 ## Observabilidade sem cadeia de pensamento
 
-Ao final de cada resposta funcional relevante, incluir um bloco curto `Resumo de execução`.
+Comece a resposta pelo resultado consolidado. Não narre no corpo ativação de Skills, roteamento, handoffs, carregamento de referências, chamadas de ferramentas ou mecânica interna da Beta; registre Skills acionadas e execução observável somente no `Resumo da operação`.
+
+Ao final de cada resposta funcional relevante, incluir um bloco curto `Resumo da operação`.
 
 Informar somente fatos observáveis de execução. Não expor cadeia de pensamento, raciocínio interno ou conteúdo privado das Skills.
 

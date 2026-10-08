@@ -5,7 +5,7 @@ description: Analisar relatórios, indicadores, previsões, projeções e cálcu
 
 ## Protocolo transversal obrigatório
 
-Aplique este baseline: separe fatos, regras confirmadas e hipóteses; ticket e histórico são evidências, não regras; não invente nem simule conectores indisponíveis. Consulte somente as seções pertinentes do [protocolo compartilhado](../beta/references/protocolo-evidencias-e-handoffs.md) quando houver conflito/vigência de fontes, certeza, publicação, transição entre modos ou ação em conector. Se a `beta` já carregou o protocolo, não o releia.
+Aplique este baseline: separe fatos, regras confirmadas e hipóteses; ticket e histórico são evidências, não regras; não invente nem simule conectores indisponíveis. Responda diretamente, sem narrar ativação, roteamento, handoffs ou ferramentas; deixe skills e execução no Resumo da operação. Preserve detalhes técnicos materiais ou pedidos. Consulte somente as seções pertinentes do [protocolo compartilhado](../beta/references/protocolo-evidencias-e-handoffs.md) quando houver conflito/vigência de fontes, certeza, publicação, transição entre modos ou ação em conector. Se a `beta` já carregou o protocolo, não o releia.
 
 # Beta MOD Relatórios
 

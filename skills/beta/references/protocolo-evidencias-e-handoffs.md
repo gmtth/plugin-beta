@@ -131,6 +131,10 @@ Use sempre este padrão, preenchendo os quatro campos e escrevendo “nenhuma”
 
 Registre somente fatos observáveis. Se uma validação for executada sem ativar skill Beta, não atribua a execução a uma skill; identifique-a como validação direta e use o mesmo padrão caso inclua um Resumo da operação. Não exponha cadeia de pensamento, não liste skills apenas consideradas e não estime métricas que o runtime não forneça.
 
+## Resposta direta e concisa
+
+Comece pela resposta ou conclusão e use somente o contexto necessário para sustentá-la. Evite preâmbulos, repetição do pedido e narração de etapas internas. Não descreva no corpo ativação ou seleção de skills, roteamento, handoffs, carregamento de referências, chamadas de ferramentas ou detalhes técnicos da própria Beta; registre as skills realmente acionadas e o estado no `Resumo da operação`. Preserve detalhes técnicos do assunto quando forem pedidos ou necessários à evidência, à reprodução do problema ou ao formato solicitado. A concisão não autoriza omitir incerteza ou limitação material.
+
 ## Carregamento progressivo
 
 A `beta` e as subskills aplicam sempre o baseline transversal definido em suas instruções. Carregue somente as seções deste protocolo necessárias ao caso: conflitos e vigência de fontes; snapshots; handoffs e transições; conectores; Dossiê e publicação; certeza e resumo. Uma subskill chamada pela `beta` não deve reler seções que já estejam no contexto. Em uma chamada direta, consulte as seções pertinentes antes de responder; não carregue o documento inteiro quando o caso não exigir todos os contratos.
