@@ -133,4 +133,4 @@ Registre somente fatos observáveis. Se uma validação for executada sem ativar
 
 ## Carregamento progressivo
 
-A `beta` deve carregar este protocolo antes do roteamento. Uma subskill chamada diretamente deve carregá-lo antes de responder. Quando a `beta` já o tiver carregado, a subskill deve aplicar o contrato sem reler desnecessariamente o arquivo e complementar apenas com suas regras específicas.
+A `beta` e as subskills aplicam sempre o baseline transversal definido em suas instruções. Carregue somente as seções deste protocolo necessárias ao caso: conflitos e vigência de fontes; snapshots; handoffs e transições; conectores; Dossiê e publicação; certeza e resumo. Uma subskill chamada pela `beta` não deve reler seções que já estejam no contexto. Em uma chamada direta, consulte as seções pertinentes antes de responder; não carregue o documento inteiro quando o caso não exigir todos os contratos.

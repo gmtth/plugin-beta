@@ -23,6 +23,8 @@ Classificar a entrada:
 
 Se não houver conteúdo funcional relevante, não atualizar artificialmente o Dossiê.
 
+Se a solicitação apenas pedir explicação ou confirmação de comportamento já consolidado e não exigir decisão, impacto, atualização do Dossiê ou materialização de modelagem, roteie para ANL e encerre o fluxo MOD. Não ative Regras, Dossiê ou QA MOD nesse caminho. Esta saída rápida não se aplica quando houver regra nova ou alterada, fontes conflitantes, decisão funcional em aberto ou entrega de modelagem.
+
 ## Gate 2 — Fontes e vigência
 
 Usar quando houver mais de uma evidência, versão ou possível conflito.

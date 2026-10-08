@@ -89,7 +89,11 @@ Quando faltar informação que altere materialmente a resposta, faça apenas as 
 Não repita perguntas já respondidas.
 
 ## Conhecimento funcional
-Todas as skills consultam o artefato vigente cujo `knowledge_id` seja `CENCIHUB_KNOWLEDGE_MASTER`, interpretando-o conforme seu próprio modo de leitura.
+Consulte o artefato vigente com `knowledge_id: CENCIHUB_KNOWLEDGE_MASTER` somente quando a resposta depender de regra, definição, fluxo ou comportamento interno do CENCIHUB; tarefas sem essa dependência não precisam carregar conhecimento funcional.
+
+### Recuperação direcionada
+
+Para uma pergunta delimitada, localize primeiro termos, títulos e seções ligados ao assunto e leia apenas os trechos correspondentes, incluindo contexto adjacente quando necessário para interpretar a regra e sua fonte. Amplie a busca para outras seções ou snapshots somente quando a resposta cruzar assuntos, houver conflito, ou os trechos encontrados não sustentarem uma conclusão. Não carregue nem reproduza o snapshot inteiro como etapa padrão. Preserve os metadados e as datas das fontes usados para avaliar vigência; recuperação curta não reduz o padrão de evidência.
 
 Não vincule a execução a nome físico de arquivo.
 

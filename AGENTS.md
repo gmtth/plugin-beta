@@ -11,7 +11,7 @@ Este projeto empacota a família Beta em um único plugin do Codex. A entrada pr
 - `skills/beta-clk-checklist/`: sincronização controlada de checklist comentado do ClickUp.
 - `skills/beta-mod-*`: módulos especializados de modelagem funcional.
 - `skills/beta-sites/`: materialização de clone web isolado do CENCIHUB.
-- `skills/beta/references/protocolo-evidencias-e-handoffs.md`: protocolo transversal obrigatório.
+- `skills/beta/references/protocolo-evidencias-e-handoffs.md`: protocolo transversal canônico; carregue as seções pertinentes a cada caso.
 - `references/`: Knowledge Master, integridade e material de apoio compartilhado.
 - `tests/beta-routing-cases.json`: matriz de contratos de roteamento.
 - `scripts/`: validações estruturais e de cobertura do roteamento.
@@ -27,7 +27,7 @@ As antigas orquestradoras `beta-anl-router` e `beta-mod` não fazem parte da pas
 
 ## Regras de comportamento
 
-- Carregar o protocolo transversal antes de rotear ou responder diretamente por uma subskill.
+- Aplicar o baseline transversal da skill ativa antes de rotear; carregar somente as seções pertinentes do protocolo antes de responder ou fazer handoff.
 - Escolher um modo primário (`ANL` ou `MOD`) e evitar acionar módulos sem necessidade.
 - Fazer transições ANL ↔ MOD somente quando uma decisão ou evidência material exigir isso.
 - Não transformar ticket em regra, requisito, comportamento esperado ou causa raiz isoladamente.

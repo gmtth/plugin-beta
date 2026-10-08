@@ -5,17 +5,13 @@ description: Orquestrar as famílias Beta ANL e Beta MOD em uma única entrada, 
 
 # Beta
 
-## Protocolo transversal obrigatório
+## Garantias transversais
 
-Leia [protocolo-evidencias-e-handoffs.md](references/protocolo-evidencias-e-handoffs.md) antes de classificar a intenção ou acionar qualquer skill. Ele é o contrato canônico de evidências, vigência, handoffs, estados, transições ANL ↔ MOD, conectores, publicação e certeza.
+Separe fatos fornecidos, regras confirmadas e hipóteses. Ticket e histórico são evidências, não regras; não transforme hipótese em diagnóstico. Faça handoff somente quando puder alterar materialmente a resposta e reconsolide o retorno. Não invente informação nem simule conectores indisponíveis. Consulte as seções pertinentes do [protocolo transversal](references/protocolo-evidencias-e-handoffs.md) quando houver conflito ou vigência de fontes, transição entre modos, publicação, certeza ou ação em conector; não carregue o protocolo inteiro para casos que não dependam desses detalhes.
 
 ## Saída obrigatória após ativar uma skill
 
-Quando qualquer skill Beta for ativada, encerre a resposta com um bloco curto **Resumo da operação**, inclusive quando a saída principal for um artefato para copiar. Mantenha o resumo fora do texto copiável ou do comentário enviado ao ClickUp. Use sempre este padrão, preenchendo os quatro campos e escrevendo “nenhuma” quando não houver dado aplicável:
-
-`**Resumo da operação:** skills acionadas e estado: <skills realmente ativadas e resultado>; fontes/validações: <fontes e verificações realizadas>; ações externas/alterações: <ações realizadas ou “nenhuma”>; pendências/limitações: <itens existentes ou “nenhuma”>.`
-
-Registre somente fatos observáveis. Se uma validação for executada sem ativar skill Beta, não atribua a execução a uma skill; identifique-a como validação direta e use o mesmo padrão caso inclua um Resumo da operação. Não exponha cadeia de pensamento, não liste skills apenas consideradas e não estime métricas que o runtime não forneça.
+Encerre respostas após ativar uma skill com o resumo observável definido no [protocolo transversal](references/protocolo-evidencias-e-handoffs.md). Mantenha-o fora de artefatos e comentários copiáveis. Não exponha cadeia de pensamento nem estime métricas que o runtime não forneça.
 
 Quando a resposta usar informação funcional consultada no `CENCIHUB_KNOWLEDGE_MASTER` ou em outra fonte interna funcional do CENCIHUB, abra com o grau de certeza definido no control plane ANL. Faça isso também quando a fonte interna contribuir junto com tarefa, comentário ou dado fornecido pelo usuário. Não inclua grau de certeza quando a resposta se basear somente no material do usuário ou em dados operacionais do ClickUp. Mantenha a linha fora do artefato copiável e nunca dentro de um comentário publicado.
 
@@ -31,6 +27,8 @@ Classifique silenciosamente o objetivo principal antes de acionar uma skill:
 
 - **ANL**: explicar o CENCIHUB, analisar regra confirmada, investigar incidente, consultar Movidesk, criar/revisar testes, organizar resultados de QA ou preparar card do ClickUp.
 - **MOD**: discutir ou consolidar modelagem funcional, fechar comportamento, analisar múltiplas fontes, manter Dossiê, avaliar impactos de telas/processamento/permissões/relatórios/Figma ou gerar artefato final.
+
+Pergunta sobre comportamento já confirmado, sem decisão funcional nova nem artefato de modelagem, permanece em ANL. Use MOD quando o usuário precisar definir, consolidar ou avaliar impacto de comportamento funcional.
 
 Escolha um único modo primário. O modo auxiliar só pode ser acionado quando fornecer uma evidência ou decisão necessária para concluir o objetivo primário.
 
@@ -66,13 +64,9 @@ Não avance automaticamente de testes para resultados ou de resultados para card
 
 ### Ciclo integrado de QA
 
-Quando o usuário iniciar um ciclo de QA de uma tarefa, `beta-anl-qa-testes` é sempre a primeira etapa, inclusive quando já houver checklist publicado. Leia integralmente a tarefa principal: título, descrição, campos personalizados, histórico completo de comentários, threads e paginação. Consulte somente tarefas diretamente listadas em `Itens relacionados`; leia nelas apenas título, descrição, causa, solução e os cinco comentários mais recentes, sem percorrer relações recursivamente. Mantenha o checklist neutro, sem nomes ou IDs de clientes/bases.
+Quando o objetivo for iniciar ou continuar QA de uma tarefa, encaminhe primeiro para `beta-anl-qa-testes`. A skill e o control plane ANL contêm o contrato completo de leitura, seleção, publicação e handoffs; mantenha o fluxo detalhado em um único lugar.
 
-Apresente Smoke e Testes estendidos em blocos separados e explique por que a cobertura estendida traz benefício. Discuta com o usuário os itens que entrarão/sairão antes de publicar. Depois da seleção final, releia o status atual da tarefa: qualquer comentário novo no ciclo fica bloqueado salvo quando o status for exatamente `teste q.a.`. Se estiver diferente, indisponível ou ambíguo, não comente e não avance; informe o estado. Com status correto, publique um único comentário contendo somente o título `Checklist de testes` e os itens selecionados, um por linha no formato `- [ ] <teste>`, sem rótulos de Smoke/Testes estendidos ou explicações.
-
-Somente após o conector confirmar a publicação do checklist, inicie QA Resultados sem uma nova pergunta de aceite; registre ID da tarefa, checklist e identificador único da execução. Isso inicia acompanhamento, não significa que os testes ocorreram. Em QA Resultados, prepare um comentário por problema, mostre a tarefa de destino e o texto exato do lote, e peça aprovação explícita antes de publicar. Releia o status imediatamente antes de cada novo comentário e publique somente quando ele for exatamente `teste q.a.`. Quando o usuário declarar que a execução terminou, encaminhe para `beta-clk-checklist` o identificador da execução e o estado de cada item. Atualize somente o comentário mais recente intitulado exatamente `Checklist de testes`; itens com problema, não executados ou bloqueados permanecem pendentes. Se a execução completa ou o estado de algum item não estiver confirmado, pergunte antes de marcar sucesso.
-
-Quando o modo ANL envolver comunicação com suporte/cliente, grau de certeza, protocolos detalhados de evidência operacional, ClickUp ou memória, consulte [beta-anl-control-plane/CONTROL_PLANE.md](references/beta-anl-control-plane/CONTROL_PLANE.md).
+Quando o modo ANL exigir regras além do roteamento curto, consulte somente as seções pertinentes do [control plane ANL](references/beta-anl-control-plane/CONTROL_PLANE.md): comunicação para respostas a suporte/cliente; certeza para fontes funcionais internas; Movidesk para consultas operacionais; ClickUp para leitura ou publicação; memória para pedidos de persistência. Não carregue as demais seções quando não forem necessárias.
 
 ## Roteamento MOD
 
@@ -123,24 +117,11 @@ Não exponha nomes de skills nem fragmentação interna no corpo da resposta, sa
 
 ## Garantias do modo MOD
 
-Quando o modo primário for MOD, preserve estas garantias da antiga orquestração Beta:
-
-- modelagem relevante começa por `beta-mod-regras` e `beta-mod-dossie`;
-- fontes, versões ou conflitos de vigência passam por `beta-mod-fontes` antes do Dossiê;
-- toda lacuna material termina como Confirmada, Pendente, Divergente, Substituída ou Histórica, com destino quando aplicável;
-- fechar o comportamento na sequência aplicável: gatilho, condição, ator, ação, validação, registro afetado, resultado, confirmação/cancelamento/fechamento/falha, continuidade, rastreabilidade e efeitos proibidos;
-- `beta-mod-qa` é gate antes da finalização e deve ser repetido após correção material;
-- `beta-mod-artefatos` só materializa conteúdo consolidado, com Dossiê, filtro de publicação e QA concluídos, salvo conteúdo explicitamente aprovado para mera materialização;
-- manter um único `DOSSIE_CONTEXTO_MODELAGEM.md`, sem incorporá-lo automaticamente ao artefato publicável;
-- publicar somente entendimento vigente destinado à MODELAGEM; não publicar contexto interno, histórico sem efeito vigente, regra substituída ou pendência;
-- especificar efeito funcional, sem inventar tabela, endpoint, serviço, fila, retry, arquitetura ou outra implementação técnica;
-- ao final, produzir um resumo observável da execução sem expor cadeia de pensamento.
-
-Para o contrato MOD completo, consulte [beta-mod-control-plane/CONTROL_PLANE.md](references/beta-mod-control-plane/CONTROL_PLANE.md) e carregue referências internas somente quando o caso exigir.
+Ao selecionar MOD, carregue o [control plane MOD](references/beta-mod-control-plane/CONTROL_PLANE.md) para gates e garantias. Consulte referências internas e skills temáticas somente quando o assunto exigir.
 
 ## Observabilidade e indisponibilidade
 
-Em toda resposta produzida após a ativação de uma skill, inclua o Resumo da operação descrito no início desta skill. Em respostas MOD, inclua também ciclos de QA, estado do Dossiê e artefatos quando aplicável. Registre somente dados observáveis; não estime métricas indisponíveis.
+Em respostas MOD, detalhe ciclos de QA, estado do Dossiê e artefatos somente quando aplicável, seguindo o contrato de observabilidade do control plane MOD.
 
 Se uma skill, fonte ou conector necessário estiver indisponível, não simule a execução. Preserve a lacuna como Pendente ou Divergente e informe a limitação quando ela afetar o resultado.
 

@@ -252,6 +252,8 @@ Se uma Skill obrigatória, conector ou fonte necessária estiver indisponível:
 
 Manter esta Skill como control plane.
 
+Classifique a materialidade no Gate 1 antes de acionar módulos. Em pedido sem conteúdo funcional novo, encerre sem carregar referências MOD adicionais. Em modelagem relevante, preserve os gates; carregue somente a matriz de roteamento, a referência operacional do gate atual, a skill temática aplicável e a referência de observabilidade no encerramento.
+
 Não copiar para `@beta` checklists completos, exemplos, heurísticas, linguagem documental ou conhecimento interno das Skills especializadas.
 
 Carregar somente:

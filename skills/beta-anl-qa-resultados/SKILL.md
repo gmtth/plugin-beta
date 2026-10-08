@@ -5,7 +5,7 @@ description: No ciclo integrado iniciado após QA Testes e aceite do usuário, o
 
 ## Protocolo transversal obrigatório
 
-Antes de responder, aplique o [protocolo compartilhado](../beta/references/protocolo-evidencias-e-handoffs.md). Se esta skill foi acionada pela `beta`, considere o protocolo já carregado e complemente apenas com as regras específicas desta skill.
+Aplique este baseline: separe fatos, regras confirmadas e hipóteses; ticket e histórico são evidências, não regras; não invente nem simule conectores indisponíveis. Consulte somente as seções pertinentes do [protocolo compartilhado](../beta/references/protocolo-evidencias-e-handoffs.md) quando houver conflito/vigência de fontes, certeza, publicação, transição entre modos ou ação em conector. Se a `beta` já carregou o protocolo, não o releia.
 
 # Beta ANL — QA resultados
 
