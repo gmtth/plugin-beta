@@ -139,6 +139,8 @@ Quando o comportamento esperado não estiver disponível e não puder ser confir
 
 ## Comentários de resultados no ClickUp
 
+Esta é a única escrita desta skill no ClickUp: criar comentários de nível superior, um por problema, apenas no fluxo e com a aprovação e a trava de status abaixo. Não executar outras escritas; aplica-se também a regra de autorização do control plane.
+
 No ciclo integrado, use o checklist escolhido e publicado na etapa QA Testes. A publicação confirmada inicia QA Resultados; organize os estados informados para cada item: problema, sucesso, não executado ou bloqueado. Não presuma que o silêncio significa sucesso; antes de fechar a rodada, confirme que a execução terminou e que todos os problemas foram relatados.
 
 Quando QA Testes tiver passado o ID da tarefa e o usuário relatar problemas durante a execução, prepare um comentário independente para cada problema, sem combinar erros distintos. Mantenha um identificador novo e único `Execução QA` para cada rodada e use-o no acompanhamento interno e no handoff para Beta CLK. Para reproduzir o formato visual preferido pelo usuário, não inclua esse identificador nem rótulos como `Item do checklist`, `Problema encontrado`, `Comportamento esperado` ou `Evidência` no corpo do comentário, salvo se o usuário pedir.

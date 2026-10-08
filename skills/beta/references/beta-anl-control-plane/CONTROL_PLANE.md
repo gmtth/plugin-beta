@@ -231,6 +231,8 @@ Use somente quando uma ferramenta de ClickUp estiver realmente disponível na se
 
 A integração é somente leitura por padrão.
 
+Regra de autorização: negar por padrão toda ação de escrita no ClickUp. Execute uma escrita somente quando a skill primária autorizar explicitamente aquele tipo de ação e todas as condições da exceção forem atendidas. Pedido do usuário, disponibilidade de ferramenta ou permissão técnica do conector, isoladamente, não amplia a lista; para liberar outro tipo de escrita, atualize primeiro a skill correspondente.
+
 Exceções estritas no ciclo integrado de QA:
 - `beta-anl-qa-testes` pode criar um único comentário `Checklist de testes` após o usuário fechar a seleção dos itens e somente se o status atual for exatamente `teste q.a.`;
 - `beta-anl-qa-resultados` pode criar comentários de nível superior, um por problema, somente depois de mostrar a tarefa de destino e o texto exato de todo o lote, receber aprovação explícita do usuário e confirmar imediatamente o status `teste q.a.`;

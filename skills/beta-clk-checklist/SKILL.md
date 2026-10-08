@@ -18,7 +18,7 @@ Atualizar somente um comentário de checklist no ClickUp com base nos problemas 
 
 ## Limite absoluto de escrita
 
-Permitir exatamente uma operação de escrita: atualizar o texto de um único comentário de checklist.
+Esta é a única escrita desta skill no ClickUp: atualizar o texto de um único comentário de checklist. Aplicar também a regra de autorização do control plane.
 
 Nunca:
 - alterar descrição, nome, status, prioridade, responsáveis, datas, campos personalizados, tags ou listas da tarefa;
