@@ -141,23 +141,30 @@ Quando o comportamento esperado não estiver disponível e não puder ser confir
 
 No ciclo integrado, use o checklist escolhido e publicado na etapa QA Testes. A publicação confirmada inicia QA Resultados; organize os estados informados para cada item: problema, sucesso, não executado ou bloqueado. Não presuma que o silêncio significa sucesso; antes de fechar a rodada, confirme que a execução terminou e que todos os problemas foram relatados.
 
-Quando QA Testes tiver passado o ID da tarefa e o usuário relatar problemas durante a execução, prepare um comentário independente para cada problema, sem combinar erros distintos. Use um identificador novo e único `Execução QA` para cada rodada e repita o mesmo identificador em todos os comentários daquela rodada. Esse identificador permite distinguir uma reexecução de problemas antigos.
+Quando QA Testes tiver passado o ID da tarefa e o usuário relatar problemas durante a execução, prepare um comentário independente para cada problema, sem combinar erros distintos. Mantenha um identificador novo e único `Execução QA` para cada rodada e use-o no acompanhamento interno e no handoff para Beta CLK. Para reproduzir o formato visual preferido pelo usuário, não inclua esse identificador nem rótulos como `Item do checklist`, `Problema encontrado`, `Comportamento esperado` ou `Evidência` no corpo do comentário, salvo se o usuário pedir.
 
-Formato de cada comentário:
+### Formato do comentário
+
+Monte o corpo nesta ordem, preservando as quebras de linha indicadas:
 
 ```text
-Execução QA: <identificador da rodada>
-Item do checklist: <item copiado literalmente>
-Problema encontrado: <problema observado>
-Comportamento esperado: <comportamento esperado>
-Evidência: <evidência fornecida ou indicação de que não foi fornecida>
+> <item do checklist copiado literalmente>
+
+<relato direto do problema em um parágrafo; quando matrícula e nome tiverem sido fornecidos e ajudarem a localizar o caso, inclua-os como `matrícula - nome`>
+
+<anexos reais de evidência, inseridos como anexos do comentário na ordem fornecida>
+O comportamento esperado é <comportamento esperado informado ou confirmado>.
 ```
+
+Use uma linha em branco entre o item citado e o relato, e outra entre o relato e os anexos. Insira cada evidência como arquivo/imagem/vídeo anexado de verdade ao comentário; após o último anexo, coloque o comportamento esperado em um novo parágrafo. Se não houver evidência, omita o bloco de anexos e mantenha o comportamento esperado após o relato, separado por uma linha em branco. Preserve o texto do item e o comportamento esperado sem rótulos, e não acrescente abertura, resumo ou encerramento.
+
+Não substitua anexos por caminho local, URL `file:`, nome de arquivo em texto ou link Markdown que não abra a evidência para os participantes da tarefa. A ferramenta `clickup_create_comment` disponível nesta integração aceita apenas texto e não oferece campo de anexo no comentário. `clickup_attach_task_file` e `clickup_request_attachment_upload` anexam arquivos à tarefa, não ao comentário, e não reproduzem as miniaturas em linha do formato acima. Portanto, se não houver uma ferramenta de anexo diretamente ao comentário na sessão, informe que não consegue produzir esse formato completo pelo conector; deixe o texto preparado para publicação manual e não afirme que a imagem foi anexada. Só ofereça anexar à tarefa separadamente quando isso for solicitado, deixando clara a diferença.
 
 Não invente evidência. Se houver mais de um problema, publique um comentário por problema, mesmo quando todos estiverem associados ao mesmo item do checklist.
 
 Antes de qualquer publicação, releia o status atual da tarefa e confirme que é exatamente `teste q.a.`. Se estiver diferente, indisponível ou ambíguo, bloqueie todos os comentários novos e informe o estado observado. Com o status correto, mostre o destino (tarefa identificada por título e link/ID) e o texto integral de cada comentário. Pergunte se o usuário aprova aquele lote exato. Só uma resposta afirmativa à prévia autoriza a publicação dos comentários apresentados; qualquer alteração posterior exige nova prévia e aprovação e nova conferência do status. A autorização não permite editar outros comentários ou alterar campos da tarefa.
 
-Publique os comentários somente se o conector ClickUp estiver disponível. Crie um comentário por problema e não acrescente comentário-resumo ou comentário de encerramento. Se o resultado da chamada for incerto, leia os comentários da tarefa antes de tentar novamente para evitar duplicidade. Se não houver aprovação ou acesso ao conector, mantenha os comentários como rascunhos na resposta e informe o estado.
+Publique os comentários somente se o conector ClickUp estiver disponível e permitir cumprir o formato solicitado, inclusive inserir os anexos reais no comentário quando houver evidência anexada. Crie um comentário por problema e não acrescente comentário-resumo ou comentário de encerramento. Se o resultado da chamada for incerto, leia os comentários da tarefa antes de tentar novamente para evitar duplicidade. Se não houver aprovação, acesso ou suporte a anexos no comentário, mantenha o texto como rascunho na resposta e informe a limitação; não publique caminhos ou nomes de arquivo como se fossem anexos.
 
 Ao encaminhar a execução para Beta CLK, forneça o ID da tarefa, o checklist exato, o identificador `Execução QA`, os itens com problema e o estado informado de todos os outros itens. Se nenhum problema ocorreu, passe a confirmação de execução completa e o identificador no contexto; não crie comentário de erro.
 
@@ -306,7 +313,7 @@ Antes da resposta, confirme:
 ## Formato de saída
 Em português, use linguagem direta e rastreável.
 
-Para registros, prefira o bloco padrão de problema.
+Para rascunhos destinados a comentários de problemas no ClickUp, use o formato visual definido em `Comentários de resultados no ClickUp`. Em registros internos, preserve separadamente o item, o problema, o comportamento esperado, a evidência e o estado da execução.
 
 Para checklist de ClickUp, entregue a lista preservando texto e ordem, com `[x]` e `[ ]` conforme o estado da execução.
 
